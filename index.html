@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#214832">
+<title>ماهون | هنر چوب، زیبایی ماندگار</title>
+<style>
+:root{--green:#214832;--dark:#173523;--olive:#78865c;--cream:#f7f2e7;--brown:#986b3f;--white:#fff;--line:#e8e1d4}
+*{box-sizing:border-box}
+html{direction:rtl;scroll-behavior:auto}
+body{margin:0;background:var(--cream);color:#29372e;font-family:Tahoma,Arial,sans-serif;line-height:1.8;overflow-x:hidden}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+header{background:var(--green);color:white;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;min-height:68px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:bold}
+.brand img{width:48px;height:48px;border-radius:50%;object-fit:contain;background:white}
+.head-buttons{display:flex;gap:15px}
+.head-buttons button{border:0;background:none;color:white;font-size:22px}
+nav{display:flex;justify-content:space-around;flex-wrap:wrap;background:white;padding:10px 3px;z-index:1;border-bottom:1px solid var(--line);gap:4px}
+nav button{border:0;background:none;color:var(--green);font-weight:bold;font-size:12px;padding:7px}
+main{max-width:950px;margin:auto;padding:14px 13px 100px}
+.page{display:none}.page.active{display:block}
+.hero{border-radius:18px;min-height:220px;padding:25px 20px;color:white;background:linear-gradient(90deg,#173523ed,#17352355),url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200') center/cover}
+.hero h1{font-size:25px;line-height:1.9;margin:0 0 8px;overflow-wrap:anywhere}
+.hero p{line-height:2;font-size:14px;margin:0 0 15px}
+.btn{border:0;border-radius:9px;padding:11px 15px;background:var(--green);color:white;font-size:13px}
+.btn.light{background:#f4e6ca;color:var(--green)}
+.btn.red{background:#a33e35}
+.btn.small{padding:7px 10px;font-size:11px}
+h2{color:var(--green);font-size:19px;margin:22px 0 13px;line-height:1.8}
+h3{font-size:14px;line-height:1.8}
+.stories{display:flex;gap:17px;overflow-x:auto;padding:8px 2px 17px;overscroll-behavior-x:contain}
+.story{min-width:75px;text-align:center;font-size:12px}
+.story img{width:67px;height:67px;border-radius:50%;object-fit:cover;border:3px solid var(--brown);padding:2px;background:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product{background:white;border-radius:13px;overflow:hidden;box-shadow:0 3px 12px #00000012;min-width:0}
+.product img{width:100%;height:160px;object-fit:cover;background:#e5dfd1;display:block}
+.info{padding:11px}.info h3{margin:3px 0 8px}
+.price{font-size:13px;color:var(--green);font-weight:bold}
+.info .btn{width:100%;margin-top:10px}
+.post{background:white;border-radius:14px;overflow:hidden;margin:15px 0}
+.posthead{display:flex;align-items:center;gap:9px;padding:11px;font-size:13px;font-weight:bold}
+.posthead img{width:37px;height:37px;border-radius:50%;object-fit:contain;background:var(--green)}
+.postphoto{width:100%;height:auto;max-height:450px;object-fit:cover;display:block;background:#e5dfd1}
+.postbody{padding:12px;font-size:13px;line-height:2}
+.postbody button{border:0;background:none;font-size:21px;padding:4px 8px}
+.comments{border-top:1px solid var(--line);padding-top:8px;margin-top:8px}
+.comment{font-size:12px;margin:5px 0;overflow-wrap:anywhere}
+.panel{background:white;border-radius:14px;padding:16px;margin:13px 0;min-width:0}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 12px;background:white;font-size:13px;max-width:100%}
+textarea{min-height:75px;resize:vertical}
+label{font-size:12px;color:#555}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.muted{font-size:12px;color:#858b82;line-height:2}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:9px 2px calc(9px + env(safe-area-inset-bottom));z-index:20}
+.bottom button{border:0;background:none;color:var(--green);font-size:21px}
+.bottom small{display:block;font-size:10px;margin-top:4px}
+.empty{text-align:center;padding:25px;color:#858b82;font-size:13px}
+hr{border:0;border-top:1px solid var(--line);margin:12px 0}
+footer{text-align:center;color:#858b82;padding:20px;font-size:11px}
+.admin-entry{display:block;text-align:center;margin:16px auto;color:var(--green);font-size:12px;text-decoration:underline;background:none;border:0}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}.product img{height:205px}}
+@media(max-width:360px){.hero h1{font-size:21px}.grid{gap:8px}.product img{height:135px}.info{padding:8px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">
+  <img src="IMG_20261121_201329_318.jpg" alt="لوگوی ماهون" onerror="this.style.display='none'">
+  <span>ماهون</span>
+ </div>
+ <div class="head-buttons">
+  <button aria-label="سبد خرید" onclick="go('cart')">🛒<span id="count">۰</span></button>
+  <button aria-label="حساب کاربری" onclick="go('profile')">👤</button>
+ </div>
+</header>
+<nav>
+ <button onclick="go('home')">⌂ خانه</button>
+ <button onclick="go('shop')">فروشگاه</button>
+ <button onclick="go('about')">درباره ما</button>
+ <button onclick="window.open('https://www.instagram.com/mahoon.ir/','_blank')">اینستاگرام</button>
+</nav>
+<main>
+<section id="home" class="page active">
+ <div class="hero">
+  <h1>به دنیای ماهون خوش آمدید 🌿</h1>
+  <p>ترکیبی از هنر دست، اصالت چوب و زیبایی ماندگار</p>
+  <button class="btn light" onclick="go('shop')">ورود به فروشگاه ←</button>
+ </div>
+ <h2>لحظه‌های ماهون</h2>
+ <div class="stories">
+  <div class="story"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=150" alt=""><div>محصولات</div></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1604072366595-e75dc92d6bdc?w=150" alt=""><div>هنر دست</div></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=150" alt=""><div>فضای چوبی</div></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=150" alt=""><div>ایده‌ها</div></div>
+ </div>
+ <div class="row"><h2>تازه‌های ماهون</h2><button class="btn small" onclick="go('shop')">مشاهده همه</button></div>
+ <div id="feed"></div>
+ <button class="admin-entry" onclick="openAdmin()">ورود مدیر فروشگاه</button>
+</section>
+<section id="shop" class="page">
+ <h2>فروشگاه ماهون</h2>
+ <input id="search" placeholder="جست‌وجوی محصولات..." oninput="renderProducts()">
+ <select id="sort" onchange="renderProducts()"><option value="new">جدیدترین</option><option value="low">ارزان‌ترین</option><option value="high">گران‌ترین</option></select>
+ <div class="grid" id="products"></div>
+</section>
+<section id="cart" class="page">
+ <h2>سبد خرید من 🛒</h2><div class="panel" id="cartItems"></div>
+ <div class="panel"><div class="row"><b>مبلغ کل:</b><b class="price" id="total">۰ تومان</b></div>
+ <button class="btn" style="width:100%;margin-top:15px" onclick="checkout()">ثبت درخواست سفارش</button>
+ <p class="muted">پرداخت آنلاین در این نسخه فعال نیست؛ ثبت سفارش به‌صورت آزمایشی در همین مرورگر انجام می‌شود.</p></div>
+</section>
+<section id="favorites" class="page"><h2>علاقه‌مندی‌های من ♡</h2><div class="grid" id="favoriteProducts"></div></section>
+<section id="profile" class="page">
+ <h2>حساب کاربری من</h2><div class="panel">
+ <label>نام و نام خانوادگی</label><input id="name" placeholder="نام شما">
+ <label>شماره تماس</label><input id="phone" inputmode="tel" placeholder="شماره تماس">
+ <label>نشانی کامل</label><textarea id="address" placeholder="نشانی دریافت سفارش"></textarea>
+ <button class="btn" onclick="saveProfile()">ذخیره اطلاعات</button><p id="profileMessage" class="muted"></p></div>
+ <h2>سفارش‌های من</h2><div class="panel" id="myOrders"></div>
+</section>
+<section id="about" class="page"><div class="panel"><h2>درباره ماهون</h2>
+ <p style="line-height:2">ماهون؛ پیوند هنر دست و زیبایی طبیعت. ما با الهام از اصالت چوب، محصولاتی خاص و ماندگار ارائه می‌کنیم.</p>
+ <h3>ماهون؛ هنر چوب، زیبایی ماندگار</h3><a href="https://www.instagram.com/mahoon.ir/" target="_blank" rel="noopener">صفحه اینستاگرام ماهون</a></div></section>
+<section id="admin" class="page">
+ <h2>پنل مدیریت ماهون</h2>
+ <div class="panel"><h3>افزودن محصول جدید</h3>
+ <label>نام محصول</label><input id="newName" placeholder="نام محصول">
+ <label>قیمت به تومان</label><input id="newPrice" type="number" min="1" placeholder="قیمت">
+ <label>نشانی تصویر (لینک مستقیم عکس)</label><input id="newImage" placeholder="https://...">
+ <label>توضیحات</label><textarea id="newDesc" placeholder="توضیحات محصول"></textarea>
+ <button class="btn" onclick="addProduct()">افزودن محصول</button><p id="adminMessage" class="muted"></p></div>
+ <div class="panel"><h3>مدیریت محصولات</h3><div id="adminProducts"></div></div>
+ <div class="panel"><h3>سفارش‌های ذخیره‌شده در این مرورگر</h3><div id="allOrders"></div></div>
+ <div class="panel"><button class="btn red" onclick="adminLogout()">خروج از مدیریت</button>
+ <p class="muted">رمز این نسخه نمایشی است. اطلاعات و سفارش‌ها فقط در حافظه همین مرورگر ذخیره می‌شوند و برای فروش واقعی، مدیریت امن و سفارش‌های مشترک باید سرور و پایگاه داده متصل شود.</p></div>
+</section>
+<footer>ماهون؛ هنر چوب، زیبایی ماندگار<br>@mahoon.ir</footer>
+</main>
+<div class="bottom">
+ <button onclick="go('home')">⌂<small>خانه</small></button>
+ <button onclick="go('shop')">▦<small>فروشگاه</small></button>
+ <button onclick="go('cart')">🛒<small>سبد خرید</small></button>
+ <button onclick="go('favorites')">♡<small>علاقه‌مندی</small></button>
+ <button onclick="go('profile')">♙<small>حساب من</small></button>
+</div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const money=n=>Number(n||0).toLocaleString('fa-IR')+' تومان';
+const fallback='https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600';
+function read(k,d){try{const x=localStorage.getItem(k);return x===null?d:JSON.parse(x)}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){alert('فضای ذخیره‌سازی مرورگر کافی نیست.');return false}}
+function safe(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const initial=[
+{id:1,name:'گلدان چوبی دست‌ساز',price:450000,image:'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700',description:'زیبایی طبیعت در خانه شما'},
+{id:2,name:'ساعت چوبی درختی',price:650000,image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700',description:'ترکیب هنر و اصالت چوب'},
+{id:3,name:'ظرف پذیرایی چوبی',price:520000,image:'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=700',description:'ساخته‌شده با ظرافت و دقت'}
+];
+let products=read('mahoon_products',initial),cart=read('mahoon_cart',[]),favorites=read('mahoon_favorites',[]),orders=read('mahoon_orders',[]),likes=read('mahoon_likes',[]),comments=read('mahoon_comments',{}),profile=read('mahoon_profile',{name:'',phone:'',address:''});
+function go(id){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ $(id).classList.add('active');
+ window.scrollTo({top:0,left:0,behavior:'auto'});
+ if(id==='shop')renderProducts();if(id==='cart')renderCart();if(id==='profile')renderProfile();if(id==='admin')renderAdmin();if(id==='favorites')renderFavorites();
+}
+function card(p){return `<article class="product"><img loading="lazy" src="${safe(p.image||fallback)}" onerror="this.src='${fallback}'" alt="${safe(p.name)}"><div class="info"><h3>${safe(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${safe(p.description||'')}</p><button class="btn" onclick="addCart(${Number(p.id)})">افزودن به سبد خرید</button><button class="btn small" style="margin-top:6px" onclick="toggleFavorite(${Number(p.id)})">♡ علاقه‌مندی</button></div></article>`}
+function renderProducts(){const q=($('search').value||'').trim().toLowerCase(),sort=$('sort').value;let list=products.filter(p=>(p.name+' '+(p.description||'')).toLowerCase().includes(q));if(sort==='low')list.sort((a,b)=>a.price-b.price);if(sort==='high')list.sort((a,b)=>b.price-a.price);$('products').innerHTML=list.length?list.map(card).join(''):'<div class="empty">محصولی پیدا نشد.</div>'}
+function renderFeed(){$('feed').innerHTML=products.map(p=>`<article class="post"><div class="posthead"><img src="IMG_20261121_201329_318.jpg" onerror="this.style.display='none'" alt=""> ماهون • محصولات چوبی</div><img class="postphoto" loading="lazy" src="${safe(p.image||fallback)}" onerror="this.src='${fallback}'" alt="${safe(p.name)}"><div class="postbody"><button onclick="like(${Number(p.id)})">${likes.includes(p.id)?'❤️':'♡'}</button><button onclick="focusComment(${Number(p.id)})">💬</button><button onclick="share(${Number(p.id)})">↗</button><p><b>${safe(p.name)}</b> — ${safe(p.description||'محصولی از ماهون')}</p><b class="price">${money(p.price)}</b><button class="btn small" onclick="addCart(${Number(p.id)})">افزودن به سبد</button><div class="comments">${(comments[p.id]||[]).map(c=>`<div class="comment"><b>${safe(c.name)}:</b> ${safe(c.text)}</div>`).join('')}</div><input id="comment-${Number(p.id)}" placeholder="دیدگاه خود را بنویسید"><button class="btn small" onclick="addComment(${Number(p.id)})">ارسال دیدگاه</button></div></article>`).join('')}
+function like(id){likes=likes.includes(id)?likes.filter(x=>x!==id):[...likes,id];save('mahoon_likes',likes);renderFeed()}
+function focusComment(id){const el=$('comment-'+id);if(el){el.scrollIntoView({behavior:'auto',block:'center'});el.focus()}}
+function addComment(id){const el=$('comment-'+id),t=el.value.trim();if(!t)return alert('متن دیدگاه را بنویسید.');comments[id]=comments[id]||[];comments[id].push({name:profile.name||'مشتری ماهون',text:t});save('mahoon_comments',comments);renderFeed()}
+function share(id){const p=products.find(x=>x.id===id);if(!p)return;const txt=p.name+' | ماهون';if(navigator.share)navigator.share({title:p.name,text:txt,url:location.href}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(txt+' '+location.href).then(()=>alert('متن کپی شد.'));else alert(txt)}
+function addCart(id){const x=cart.find(p=>p.id===id);if(x)x.qty++;else cart.push({id,qty:1});save('mahoon_cart',cart);updateCount();alert('محصول به سبد اضافه شد.')}
+function updateCount(){$('count').textContent=cart.reduce((s,x)=>s+x.qty,0).toLocaleString('fa-IR')}
+function renderCart(){let total=0;const html=cart.map(x=>{const p=products.find(y=>y.id===x.id);if(!p)return '';total+=p.price*x.qty;return `<div class="row"><div><b>${safe(p.name)}</b><p class="price">${money(p.price)}</p></div><div><button class="btn small" onclick="quantity(${Number(p.id)},1)">+</button> ${x.qty.toLocaleString('fa-IR')} <button class="btn small" onclick="quantity(${Number(p.id)},-1)">−</button></div></div><hr>`}).join('');$('cartItems').innerHTML=html||'<div class="empty">سبد خرید خالی است.</div>';$('total').textContent=money(total)}
+function quantity(id,n){const x=cart.find(p=>p.id===id);if(!x)return;x.qty+=n;if(x.qty<=0)cart=cart.filter(p=>p.id!==id);save('mahoon_cart',cart);updateCount();renderCart()}
+function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save('mahoon_favorites',favorites);renderFavorites()}
+function renderFavorites(){const list=products.filter(p=>favorites.includes(p.id));$('favoriteProducts').innerHTML=list.length?list.map(card).join(''):'<div class="empty">هنوز محصولی به علاقه‌مندی‌ها اضافه نکرده‌اید.</div>'}
+function saveProfile(){profile={name:$('name').value.trim(),phone:$('phone').value.trim(),address:$('address').value.trim()};save('mahoon_profile',profile);$('profileMessage').textContent='اطلاعات ذخیره شد.'}
+function renderProfile(){$('name').value=profile.name||'';$('phone').value=profile.phone||'';$('address').value=profile.address||'';$('myOrders').innerHTML=orders.length?orders.map(o=>`<div class="panel"><b>سفارش ${safe(o.id)}</b><p>${safe(o.date)}</p><p>${safe(o.items)}</p><b>${money(o.total)}</b><p class="muted">${safe(o.status)}</p></div>`).join(''):'<div class="empty">هنوز سفارشی ندارید.</div>'}
+function checkout(){if(!cart.length)return alert('سبد خرید خالی است.');if(!profile.name||!profile.phone||!profile.address){alert('ابتدا اطلاعات حساب کاربری را تکمیل کنید.');go('profile');return}let total=0,items=[];cart.forEach(x=>{const p=products.find(y=>y.id===x.id);if(p){total+=p.price*x.qty;items.push(p.name+' × '+x.qty)}});const order={id:Date.now().toString().slice(-7),date:new Date().toLocaleDateString('fa-IR'),items:items.join('، '),total,status:'در انتظار بررسی'};orders.unshift(order);save('mahoon_orders',orders);cart=[];save('mahoon_cart',cart);updateCount();alert('درخواست سفارش در همین مرورگر ثبت شد.');go('profile')}
+function addProduct(){const name=$('newName').value.trim(),price=Number($('newPrice').value),image=$('newImage').value.trim(),desc=$('newDesc').value.trim();if(!name||!price||price<=0)return alert('نام و قیمت معتبر وارد کنید.');if(image&&!/^https?:\/\//i.test(image))return alert('آدرس تصویر باید با https:// یا http:// شروع شود.');products.unshift({id:Date.now(),name,price,image:image||fallback,description:desc});save('mahoon_products',products);$('newName').value='';$('newPrice').value='';$('newImage').value='';$('newDesc').value='';$('adminMessage').textContent='محصول اضافه شد.';renderAdmin();renderFeed()}
+function deleteProduct(id){if(!confirm('این محصول حذف شود؟'))return;products=products.filter(p=>p.id!==id);save('mahoon_products',products);renderAdmin();renderProducts();renderFeed()}
+function renderAdmin(){$('adminProducts').innerHTML=products.map(p=>`<div class="row"><span>${safe(p.name)} - ${money(p.price)}</span><button class="btn red small" onclick="deleteProduct(${Number(p.id)})">حذف</button></div><hr>`).join('')||'<div class="empty">محصولی نیست.</div>';$('allOrders').innerHTML=orders.map(o=>`<div class="panel"><b>سفارش ${safe(o.id)}</b><p>${safe(o.items)}</p><b>${money(o.total)}</b><p class="muted">${safe(o.status)}</p></div>`).join('')||'<div class="empty">سفارشی ثبت نشده است.</div>'}
+function openAdmin(){if(!sessionStorage.getItem('mahoon_admin')){const key=prompt('رمز آزمایشی پنل مدیریت را وارد کنید:');if(key!=='mahoon1405')return alert('رمز صحیح نیست.');sessionStorage.setItem('mahoon_admin','yes')}go('admin')}
+function adminLogout(){sessionStorage.removeItem('mahoon_admin');go('home')}
+updateCount();renderFeed();
+</script>
+</body>
+</html>
